@@ -23,7 +23,7 @@ class Blog(models.Model):
     slug = models.SlugField(max_length=150, unique=True, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    featured_image = models.ImageField(verbose_name="Featured Image", upload_to="uploads/%Y-%m-%d")
+    featured_image = models.ImageField(verbose_name="Featured Image", upload_to="uploads/%Y-%m-%d", blank=True)
     short_description = models.TextField(verbose_name="Short Description", max_length=500)
     blog_body = models.TextField(verbose_name="Blog Body", max_length=2000)
     status = models.CharField(verbose_name="Status", max_length=20, choices=STATUS_COICES, default='Draft')
